@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Accounts Datatable" icon-name="standard:account">
+        <div id="casing">
+            <div 
+                class="slds-box slds-theme_shade" 
+                if:true={overLay}>
+            </div>
+            <div class="table-card">
+                <table class="table">
+                    <thead class="title-table">
+                        <tr class="col1">
+                            <th class="" scope="col">
+                                <div title="Account Name">Account Name</div>
+                            </th>
+                            <th class="col2" scope="col" >
+                                <div title="Rating">Rating</div>
+                            </th>
+                            <th class="col3" scope="col" >
+                                <div class="" title="Delete">Delete</div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>   
+                <template for:each={account.data} for:item="acc">
+                    <c-html-row key={acc.Id} 
+                        get-name={acc.Name} 
+                        get-id={acc.Id} 
+                        get-rating={acc.Rating}
+                        initial-name={acc.Name}
+                        initial-rating={acc.Rating}
+                        cancel-row={handleCancelRow}
+                        onrowclick={deliteAccount}
+                        onopenfooter={openFooter}
+                        onnamechange={changeNameData}
+                        onratingchange={changeRatingData}
+                        ongetid={passIdforChange}>
+                    </c-html-row>
+                </template>
+                <template if:true={footerTable} >
+                    <div class="footer">
+                        <button type="button" class="slds-button slds-button_neutral" onclick={handleCancel} >Cancel</button>
+                        <button type="button" class="slds-button slds-button_brand" onclick={handleSave} >Save</button>
+                    </div>
+                </template>  
+            </div>
+        </div>
+    </lightning-card>
+</template>
