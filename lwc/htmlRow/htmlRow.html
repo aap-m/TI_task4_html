@@ -1,0 +1,68 @@
+<template >
+    <table  class="">
+        <tbody>
+            <tr class="" >
+                <td class="col1">
+                    <div class="" title="Account Name">
+                        <template if:false={EditeIcon}>
+                            <div class={colorName} >{getName}
+                                <a name={getId} >
+                                    <button onclick={handleEditeClick} 
+                                            class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" 
+                                            title="Edit">
+                                        <lightning-icon icon-name="utility:edit" size="xx-small" class="icon-edit">
+                                        </lightning-icon>
+                                    </button>
+                                </a>
+                            </div>
+                        </template>
+                        <template if:true={EditeIcon}>
+                            <div class="">
+                                <input  class="slds-input" 
+                                        tabindex="0" 
+                                        type="text" 
+                                        value={getName} 
+                                        onchange={nameChange} 
+                                        onblur={closeEditeIcon}>
+                            </div>
+                        </template>
+                    </div>
+                </td>
+                <td class="col2">
+                    <div class="" title="Rating">
+                        <template if:false={EditeIconRating}>
+                            <div class={colorNameRating}>{getRating}
+                                <a name={getRating} >
+                                    <button onclick={handleEditeClickRating} 
+                                            title="Edit" 
+                                            class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small">
+                                        <lightning-icon icon-name="utility:edit" size="xx-small" class="icon-edit">
+                                        </lightning-icon>
+                                    </button>
+                                </a>
+                            </div>
+                        </template>
+                        <template if:true={EditeIconRating}>
+                            <div class="">
+                                    <input  class="slds-input" 
+                                            tabindex="0" 
+                                            type="text" 
+                                            value={getRating} 
+                                            onchange={ratingChange} 
+                                            onblur={closeEditeIcon}>
+                            </div>
+                        </template>
+                    </div>
+                </td>
+                <td class="col3">
+                    <div class="slds-size_2-of-12" title="Delete">
+                        <a name={getId} >
+                            <button type="button" 
+                                    class="slds-button slds-button_brand" onclick={handleDeleteClick} >Delete</button>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</template>
